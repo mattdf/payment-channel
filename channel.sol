@@ -24,7 +24,7 @@ contract Channel {
 		signer = ecrecover(h, v, r, s);
 
 		// signature is invalid, throw
-		if (signer != channelSender && signer != channelRecipient) throw;
+		if (signer != channelSender || signer != channelRecipient) throw;
 
 		proof = sha3(this, value);
 
